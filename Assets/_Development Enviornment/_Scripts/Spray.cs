@@ -22,29 +22,29 @@ public class Spray : MonoBehaviour
         Instance = this;
         startPos = transform.position;
 
-        if(GameManager.Instance.Cut_Bottle1.activeInHierarchy)
-        {
-            Bottle = GameManager.Instance.Cut_BottleDown1;
-            BottleUp = GameManager.Instance.Cut_BottleUp1;
-        }
+        //if(GameManager.Instance.Cut_Bottle1.activeInHierarchy)
+        //{
+        //    Bottle = GameManager.Instance.Cut_BottleDown1;
+        //    BottleUp = GameManager.Instance.Cut_BottleUp1;
+        //}
 
-        if(GameManager.Instance.Cut_Bottle2.activeInHierarchy)
-        {
-            Bottle = GameManager.Instance.Cut_BottleDown2;
-            BottleUp = GameManager.Instance.Cut_BottleUp2;
-        }
+        //if(GameManager.Instance.Cut_Bottle2.activeInHierarchy)
+        //{
+        //    Bottle = GameManager.Instance.Cut_BottleDown2;
+        //    BottleUp = GameManager.Instance.Cut_BottleUp2;
+        //}
 
-        if(GameManager.Instance.Cut_Bottle3.activeInHierarchy)
-        {
-            Bottle = GameManager.Instance.Cut_BottleDown3;
-            BottleUp = GameManager.Instance.Cut_BottleUp3;
-        }
+        //if(GameManager.Instance.Cut_Bottle3.activeInHierarchy)
+        //{
+        //    Bottle = GameManager.Instance.Cut_BottleDown3;
+        //    BottleUp = GameManager.Instance.Cut_BottleUp3;
+        //}
 
-        if(GameManager.Instance.Cut_Bottle4.activeInHierarchy)
-        {
-            Bottle = GameManager.Instance.Cut_BottleDown4;
-            BottleUp = GameManager.Instance.Cut_BottleUp4;
-        }
+        //if(GameManager.Instance.Cut_Bottle4.activeInHierarchy)
+        //{
+        //    Bottle = GameManager.Instance.Cut_BottleDown4;
+        //    BottleUp = GameManager.Instance.Cut_BottleUp4;
+        //}
 
         if(GameManager.Instance.Cut_Bottle5.activeInHierarchy)
         {

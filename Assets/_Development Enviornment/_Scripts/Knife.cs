@@ -42,10 +42,18 @@ public class Knife : MonoBehaviour
     public Points point11;
     public Points point12;
 
-    //public Points new1;
-    //public Points new2;
-    //public Points new3;
-    //public Points new4;
+    public Points new1;
+    public Points new2;
+    public Points new3;
+    public Points new4;
+    public Points new5;
+    public Points new6;
+    public Points new7;
+    public Points new8;
+    public Points new9;
+    public Points new10;
+
+    public GameObject closeObject;
 
     public Vector3 quaternion;
 
@@ -68,6 +76,8 @@ public class Knife : MonoBehaviour
     {
         startPos = KnifeTra.position;
         camPos = camera.transform.position;
+
+        startPos.y = 3.3945f;
         //pos = transform.position;
     }
 
@@ -88,15 +98,11 @@ public class Knife : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             isDrag = true;
-            //BottleCut.Play();
-            //BottleCut2.Play();
             IntialPos = Input.mousePosition;
         }
         if (Input.GetMouseButtonUp(0))
         {
             isDrag = false;
-            //BottleCut.Stop();
-            //BottleCut2.Stop();
         }
 
         if (isDrag)
@@ -112,134 +118,34 @@ public class Knife : MonoBehaviour
             {
                 point = raycastHit.point;
 
-                KnifeTra.position = new Vector3(point.x, startPos.y, point.z + 0.15f);
-
-                //if (Vector2.Distance(CurrentPos, IntialPos) > errorRange)
-                //{
-                //    float x = CurrentPos.x - IntialPos.x;
-                //    float y = CurrentPos.y - IntialPos.y;
-
-                //    isHorizontalSwipe = Mathf.Abs(x) > Mathf.Abs(y);
-
-                //    if (Mathf.Abs(x) > 0 || Mathf.Abs(y) > 0)
-                //    {
-                //        if (isHorizontalSwipe)
-                //        {
-                //            KnifeTra.localEulerAngles = new Vector3(0, 0, 0);
-                //        }
-                //        else if (!isHorizontalSwipe)
-                //        {
-                //            KnifeTra.localEulerAngles = quaternion;
-                //        }
-                //    }
-                //    IntialPos = Input.mousePosition;
-                //}
+                KnifeTra.position = new Vector3(point.x, startPos.y, point.z + 0.08f);
             }
         }
 
         if (point1.isKnife && point2.isKnife && point3.isKnife && point4.isKnife && point5.isKnife && point6.isKnife && point7.isKnife && point8.isKnife && point9.isKnife
             && point10.isKnife && point11.isKnife && point12.isKnife)
         {
-            KnifeTra.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            //KnifeTra.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             //camera.fieldOfView = 40;
             cutBottle.SetActive(true);
             cutBottle_Main.SetActive(true);
             CutCanvas.SetActive(true);
             MainCanvas.SetActive(false);
             MainPoints.SetActive(false);
-            this.gameObject.SetActive(false);
+            closeObject.SetActive(false);
             startPos.y = 3.319f;
             GameManager.Instance.isTrue = true;
         }
 
+        if (new1.isKnife && new2.isKnife && new3.isKnife && new4.isKnife && new5.isKnife && new6.isKnife && new7.isKnife && new8.isKnife && new9.isKnife && new10.isKnife)
+        {
+            CutCanvas.SetActive(false);
+            cutbottle_Cut.SetActive(false);
+            cutbottle_Cut_Upper.SetActive(false);
+            cutbottle_Cut_Lower.SetActive(false);
 
-        //if (point1.isKnife && point3.isKnife && point4.isKnife && point6.isKnife)
-        //{
-        //    //camera.fieldOfView = Mathf.MoveTowards(60, 40, 50 * Time.deltaTime);
-
-        //    if (point2.isKnife)
-        //    {
-        //        point7.count = 1;
-        //        point9.count = 1;
-        //    }
-        //    if (point5.isKnife)
-        //    {
-        //        point8.count = 1;
-        //        point10.count = 1;
-        //    }
-        //    if (point7.isKnife)
-        //    {
-        //        point2.count = 1;
-        //        point9.count = 1;
-        //    }
-        //    if (point8.isKnife)
-        //    {
-        //        point5.count = 1;
-        //        point10.count = 1;
-        //    }
-        //    if (point9.isKnife)
-        //    {
-        //        point2.count = 1;
-        //        point7.count = 1;
-        //    }
-        //    if (point10.isKnife)
-        //    {
-        //        point5.count = 1;
-        //        point8.count = 1;
-        //    }
-
-        //    if (point2.isKnife && point5.isKnife)
-        //    {
-        //        KnifeTra.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-        //        camera.fieldOfView = 40;
-        //        cutBottle.SetActive(true);
-        //        cutBottle_Main.SetActive(true);
-        //        CutCanvas.SetActive(true);
-        //        MainCanvas.SetActive(false);
-        //        MainPoints.SetActive(false);
-        //        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-        //        startPos.y = 3.319f;
-        //        GameManager.Instance.isTrue = true;
-        //        //this.gameObject.SetActive(false);
-        //    }
-        //    if (point7.isKnife || point9.isKnife)
-        //    {
-        //        KnifeTra.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-        //        camera.fieldOfView = 40;
-        //        cutBottle_Upper.SetActive(true);
-        //        cutBottle_Upper_Main.SetActive(true);
-        //        MainCanvas.SetActive(false);
-        //        MainPoints.SetActive(false);
-        //        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-        //        CutCanvas.SetActive(true);
-        //        startPos.y = 3.319f;
-        //        GameManager.Instance.isFlase = true;
-        //        //this.gameObject.SetActive(false);
-        //    }
-        //    if (point8.isKnife || point10.isKnife)
-        //    {
-        //        KnifeTra.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-        //        camera.fieldOfView = 40;
-        //        cutBottle_Lower.SetActive(true);
-        //        cutBottle_Lower_Main.SetActive(true);
-        //        MainCanvas.SetActive(false);
-        //        MainPoints.SetActive(false);
-        //        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-        //        CutCanvas.SetActive(true);
-        //        startPos.y = 3.319f;
-        //        GameManager.Instance.isFlase = true;
-        //        //this.gameObject.SetActive(false);
-        //    }
-        //}
-        //if (new1.isKnife && new2.isKnife && new3.isKnife && new4.isKnife)
-        //{
-        //    CutCanvas.SetActive(false);
-        //    cutbottle_Cut.SetActive(false);
-        //    cutbottle_Cut_Upper.SetActive(false);
-        //    cutbottle_Cut_Lower.SetActive(false);
-
-        //    ScreenManager.Instance.DoneBottle.SetActive(true);
-        //}
+            ScreenManager.Instance.DoneBottle.SetActive(true);
+        }
     }
 
     #region Old

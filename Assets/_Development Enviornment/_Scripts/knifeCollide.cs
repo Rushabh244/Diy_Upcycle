@@ -38,16 +38,17 @@ public class knifeCollide : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Bottle"))
+        if (other.gameObject.CompareTag("Bottle"))
         {
             isCollide = true;
         }
     }
-    private void OnCollisionExit(Collision collision)
+
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Bottle"))
+        if (other.gameObject.CompareTag("Bottle"))
         {
             isCollide = false;
         }

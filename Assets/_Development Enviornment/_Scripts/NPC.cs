@@ -75,15 +75,17 @@ public class NPC : MonoBehaviour
 
         if(GameManager.Instance.isComplete)
         {
-            if(GameManager.Instance.isTrue && GameManager.Instance.isSprayTrue && GameManager.Instance.isBottleTrue)
+            if (GameManager.Instance.isTrue && GameManager.Instance.isSprayTrue)
             {
                 anim.SetInteger("Girl", 3);
                 StartCoroutine(win(2));
+                ScreenManager.Instance.example[GameManager.Instance.num].SetActive(false);
             } 
-            if(GameManager.Instance.isFlase || !GameManager.Instance.isSprayTrue || !GameManager.Instance.isBottleTrue)
+            if(GameManager.Instance.isFlase || !GameManager.Instance.isSprayTrue)
             {
                 anim.SetInteger("Girl", 4);
                 StartCoroutine(Loss(2));
+                ScreenManager.Instance.example[GameManager.Instance.num].SetActive(false);
             }
         }
 

@@ -33,6 +33,13 @@ public class newBottleCut : MonoBehaviour
     void Start()
     {
         startPos = KnifeTra.position;
+        ScreenManager.Instance.bottleText.SetActive(true);
+        ScreenManager.Instance.planeText.SetActive(false);
+        ScreenManager.Instance.shapeText.SetActive(false);
+        ScreenManager.Instance.StarMoldText.SetActive(false);
+        ScreenManager.Instance.starText.SetActive(false);
+        ScreenManager.Instance.leafText.SetActive(false);
+        ScreenManager.Instance.arrangeText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -66,28 +73,28 @@ public class newBottleCut : MonoBehaviour
                 {
                     point = raycastHit.point;
 
-                    KnifeTra.position = new Vector3(point.x, point.y, startPos.z);
+                    KnifeTra.position = new Vector3(point.x, point.y + 0.15f, startPos.z);
 
-                    if (Vector2.Distance(CurrentPos, IntialPos) > errorRange)
-                    {
-                        float x = CurrentPos.x - IntialPos.x;
-                        float y = CurrentPos.y - IntialPos.y;
+                    //if (Vector2.Distance(CurrentPos, IntialPos) > errorRange)
+                    //{
+                    //    float x = CurrentPos.x - IntialPos.x;
+                    //    float y = CurrentPos.y - IntialPos.y;
 
-                        isHorizontalSwipe = Mathf.Abs(x) > Mathf.Abs(y);
+                    //    isHorizontalSwipe = Mathf.Abs(x) > Mathf.Abs(y);
 
-                        if (Mathf.Abs(x) > 0 || Mathf.Abs(y) > 0)
-                        {
-                            if (isHorizontalSwipe)
-                            {
-                                KnifeTra.localEulerAngles = new Vector3(0, 0, 0);
-                            }
-                            else if (!isHorizontalSwipe)
-                            {
-                                KnifeTra.localEulerAngles = quaternion;
-                            }
-                        }
-                        IntialPos = Input.mousePosition;
-                    }
+                    //    if (Mathf.Abs(x) > 0 || Mathf.Abs(y) > 0)
+                    //    {
+                    //        if (isHorizontalSwipe)
+                    //        {
+                    //            KnifeTra.localEulerAngles = new Vector3(0, 0, 0);
+                    //        }
+                    //        else if (!isHorizontalSwipe)
+                    //        {
+                    //            KnifeTra.localEulerAngles = quaternion;
+                    //        }
+                    //    }
+                    //    IntialPos = Input.mousePosition;
+                    //}
                 }
             }
             if (point1.isKnife && point2.isKnife && point3.isKnife && point4.isKnife)

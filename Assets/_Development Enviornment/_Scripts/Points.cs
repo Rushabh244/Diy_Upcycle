@@ -21,7 +21,7 @@ public class Points : MonoBehaviour
     public bool blend12;
 
     float blendOne = 0f;
-    float blendSpeed = 0.1f;
+    float blendSpeed = 0.2f;
 
     public SkinnedMeshRenderer skinnedMesh;
 

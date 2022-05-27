@@ -56,6 +56,13 @@ public class LeafDrag : MonoBehaviour
         collider = GetComponent<BoxCollider>();
         x = 0.14f;
         y = 0.15f;
+        ScreenManager.Instance.bottleText.SetActive(false);
+        ScreenManager.Instance.planeText.SetActive(false);
+        ScreenManager.Instance.shapeText.SetActive(false);
+        ScreenManager.Instance.StarMoldText.SetActive(false);
+        ScreenManager.Instance.starText.SetActive(false);
+        ScreenManager.Instance.leafText.SetActive(true);
+        ScreenManager.Instance.arrangeText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -153,6 +160,7 @@ public class LeafDrag : MonoBehaviour
 
     public void leafdone()
     {
+        ScreenManager.Instance.leafText.SetActive(false);
         ScreenManager.Instance.slider.value = 0;
         ScreenManager.Instance.fill.color = Color.yellow;
         particle.Play();
@@ -205,7 +213,7 @@ public class LeafDrag : MonoBehaviour
                 smallLeaf1.SetActive(true);
             }
 
-            if (newBland <= 90 || newBland >= 105)
+            if (newBland < 90 || newBland > 105)
             {
                 ScreenManager.Instance.smallLeaf.SetActive(false);
                 ScreenManager.Instance.smallLeafRed.SetActive(true);
@@ -246,6 +254,14 @@ public class LeafDrag : MonoBehaviour
                     nacklesMakingScene.SetActive(true);
                     candleScene.SetActive(false);
                     ScreenManager.Instance.SmallleafDoneMark1.SetActive(false);
+                    ScreenManager.Instance.bottleText.SetActive(false);
+                    ScreenManager.Instance.planeText.SetActive(false);
+                    ScreenManager.Instance.shapeText.SetActive(false);
+                    ScreenManager.Instance.StarMoldText.SetActive(false);
+                    ScreenManager.Instance.starText.SetActive(false);
+                    ScreenManager.Instance.leafText.SetActive(false);
+                    ScreenManager.Instance.arrangeText.SetActive(true);
+                    ScreenManager.Instance.SliderObj.SetActive(false);
                 }
                 if (!NacklaceManager.Instance.isStarDone)
                 {
@@ -257,7 +273,7 @@ public class LeafDrag : MonoBehaviour
                 }
             }
 
-            if (newBland <= 90 || newBland >= 105)
+            if (newBland < 90 || newBland > 105)
             {
                 ScreenManager.Instance.smallLeaf1.SetActive(false);
                 ScreenManager.Instance.smallLeaf1Red.SetActive(true);

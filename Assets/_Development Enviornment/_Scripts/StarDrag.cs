@@ -57,6 +57,14 @@ public class StarDrag : MonoBehaviour
         Instance = this;
         startPos = transform.position;
         material.color = startcolor;
+
+        ScreenManager.Instance.bottleText.SetActive(false);
+        ScreenManager.Instance.planeText.SetActive(true);
+        ScreenManager.Instance.shapeText.SetActive(false);
+        ScreenManager.Instance.StarMoldText.SetActive(false);
+        ScreenManager.Instance.starText.SetActive(false);
+        ScreenManager.Instance.leafText.SetActive(false);
+        ScreenManager.Instance.arrangeText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -78,6 +86,14 @@ public class StarDrag : MonoBehaviour
                     box.SetActive(true);
                     ScreenManager.Instance.StarBg.SetActive(true);
                     ScreenManager.Instance.StarBg1.SetActive(true);
+
+                    ScreenManager.Instance.bottleText.SetActive(false);
+                    ScreenManager.Instance.planeText.SetActive(false);
+                    ScreenManager.Instance.shapeText.SetActive(false);
+                    ScreenManager.Instance.StarMoldText.SetActive(true);
+                    ScreenManager.Instance.starText.SetActive(false);
+                    ScreenManager.Instance.leafText.SetActive(false);
+                    ScreenManager.Instance.arrangeText.SetActive(false);
                 }
 
                 if (Physics.Raycast(camRay, out raycastHit, 100000, LayerMask3))
@@ -155,6 +171,8 @@ public class StarDrag : MonoBehaviour
             {
                 ScreenManager.Instance.fill.color = Color.green;
                 material.color = endcolor;
+                ScreenManager.Instance.StarMoldText.SetActive(false);
+                ScreenManager.Instance.shapeText.SetActive(true);
             }
         }
         else
@@ -167,6 +185,8 @@ public class StarDrag : MonoBehaviour
     {
         ScreenManager.Instance.slider.value = 0;
         ScreenManager.Instance.fill.color = Color.yellow;
+
+        ScreenManager.Instance.starText.SetActive(false);
 
         particle2.Stop();
 
@@ -247,6 +267,7 @@ public class StarDrag : MonoBehaviour
             if(ScreenManager.Instance.slider.value < 180)
             {
                 transform.position = startPos;
+                ScreenManager.Instance.StarMoldText.SetActive(false);
                 ScreenManager.Instance.TextImage.SetActive(true);
             }
 
@@ -262,6 +283,7 @@ public class StarDrag : MonoBehaviour
         {
             isBlend = true;
             ScreenManager.Instance.TextImage.SetActive(false);
+            ScreenManager.Instance.StarMoldText.SetActive(true);
         }
     }
 
@@ -285,6 +307,9 @@ public class StarDrag : MonoBehaviour
 
         ScreenManager.Instance.starDone.SetActive(true);
         particle.Play();
+
+        ScreenManager.Instance.shapeText.SetActive(false);
+        ScreenManager.Instance.starText.SetActive(true);
     }
 
     IEnumerator changeScene(float sec)
@@ -296,10 +321,20 @@ public class StarDrag : MonoBehaviour
             nacklesMakingScene.SetActive(true);
             cutPiece.SetActive(false);
 
+            ScreenManager.Instance.SmallleafDoneMark1.SetActive(false);
+            ScreenManager.Instance.bottleText.SetActive(false);
+            ScreenManager.Instance.planeText.SetActive(false);
+            ScreenManager.Instance.shapeText.SetActive(false);
+            ScreenManager.Instance.StarMoldText.SetActive(false);
+            ScreenManager.Instance.starText.SetActive(false);
+            ScreenManager.Instance.leafText.SetActive(false);
+            ScreenManager.Instance.arrangeText.SetActive(true);
+
             ScreenManager.Instance.StarBg.SetActive(false);
             ScreenManager.Instance.StarBg1.SetActive(false);
             ScreenManager.Instance.StarDoneMark.SetActive(false);
             ScreenManager.Instance.StarDoneMark1.SetActive(false);
+            ScreenManager.Instance.SliderObj.SetActive(false);
         }
         if (!NacklaceManager.Instance.isleafDone)
         {

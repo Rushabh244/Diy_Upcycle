@@ -20,6 +20,8 @@ public class Final : MonoBehaviour
     public bool isLeaf2;
     public bool isLeaf3;
 
+    public ParticleSystem finish;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,6 +82,7 @@ public class Final : MonoBehaviour
             {
                 transform.position = other.transform.position;
                 isDone = true;
+                finish.Play();
             }
         }
         if(other.gameObject.CompareTag("star2"))
@@ -88,6 +91,7 @@ public class Final : MonoBehaviour
             {
                 transform.position = other.transform.position;
                 isDone = true;
+                finish.Play();
             }
         }
         if(other.gameObject.CompareTag("bigleaf"))
@@ -96,6 +100,7 @@ public class Final : MonoBehaviour
             {
                 transform.position = other.transform.position;
                 isDone = true;
+                finish.Play();
             }
         }
         if(other.gameObject.CompareTag("smallleaf1"))
@@ -104,6 +109,7 @@ public class Final : MonoBehaviour
             {
                 transform.position = other.transform.position;
                 isDone = true;
+                finish.Play();
             }
         }
         if(other.gameObject.CompareTag("smallleaf2"))
@@ -112,6 +118,7 @@ public class Final : MonoBehaviour
             {
                 transform.position = other.transform.position;
                 isDone = true;
+                finish.Play();
             }
         }
     }

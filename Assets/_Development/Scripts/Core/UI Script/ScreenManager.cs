@@ -35,6 +35,8 @@ public class ScreenManager : MonoBehaviour
 
     public GameObject SliderObj;
 
+    public GameObject[] example;
+
     public GameObject LeafBg;
     public GameObject Leaf;
     public GameObject LeafRed;
@@ -61,6 +63,18 @@ public class ScreenManager : MonoBehaviour
     public GameObject LeafDone;
 
     public GameObject TextImage;
+
+    public GameObject camObj1;
+    public GameObject camObj2;
+    public GameObject camObj3;
+
+    public GameObject bottleText;
+    public GameObject planeText;
+    public GameObject shapeText;
+    public GameObject StarMoldText;
+    public GameObject starText;
+    public GameObject leafText;
+    public GameObject arrangeText;
 
     public void stardone()
     {
@@ -127,6 +141,20 @@ public class ScreenManager : MonoBehaviour
     {
         GameManager.Instance.DoneBottle();
     }
+
+    public void cam1()
+    {
+        GameManager.Instance.cam1();
+    }
+    public void cam2()
+    {
+        GameManager.Instance.cam2();
+    }
+    public void cam3()
+    {
+        GameManager.Instance.cam3();
+    }
+
 
     //public GameObject LeafDone;
     //public GameObject LeafDone1;

@@ -12,16 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject Bottle4;
     public GameObject Bottle5;
 
-    public GameObject Cut_BottleUp1;
-    public GameObject Cut_BottleUp2;
-    public GameObject Cut_BottleUp3;
-    public GameObject Cut_BottleUp4;
     public GameObject Cut_BottleUp5;
 
-    public GameObject Cut_BottleDown1;
-    public GameObject Cut_BottleDown2;
-    public GameObject Cut_BottleDown3;
-    public GameObject Cut_BottleDown4;
     public GameObject Cut_BottleDown5;
 
     public GameObject Cut_Bottle1;
@@ -127,18 +119,26 @@ public class GameManager : MonoBehaviour
 
     public bool isSprayDone;
 
+    public GameObject Cam1;
+    public GameObject Cam2;
+    public GameObject Cam3;
+
     // Start is called before the first frame update
     void Start()
     {
         ScreenManager.Instance.SliderObj.SetActive(false);
         Instance = this;
         isSpawn = false;
+        ScreenManager.Instance.camObj1.SetActive(true);
+        ScreenManager.Instance.camObj2.SetActive(true);
+        ScreenManager.Instance.camObj3.SetActive(true);
+
         ScreenManager.Instance.Done.SetActive(false);
         ScreenManager.Instance.DoneBottle.SetActive(false);
         ScreenManager.Instance.first.SetActive(false);
         ScreenManager.Instance.Second.SetActive(false);
         ScreenManager.Instance.BG.SetActive(false);
-        ScreenManager.Instance.BGSpray.SetActive(false); 
+        ScreenManager.Instance.BGSpray.SetActive(false);
         ScreenManager.Instance.bottleBG[0].SetActive(false);
         ScreenManager.Instance.bottleBG[1].SetActive(false);
         ScreenManager.Instance.bottleBG[2].SetActive(false);
@@ -154,13 +154,22 @@ public class GameManager : MonoBehaviour
         ScreenManager.Instance.secondBottle[2].SetActive(false);
         ScreenManager.Instance.secondBottle[3].SetActive(false);
         ScreenManager.Instance.secondBottle[4].SetActive(false);
+        ScreenManager.Instance.example[num].SetActive(false);
+
+        ScreenManager.Instance.bottleText.SetActive(false);
+        ScreenManager.Instance.planeText.SetActive(false);
+        ScreenManager.Instance.shapeText.SetActive(false);
+        ScreenManager.Instance.StarMoldText.SetActive(false);
+        ScreenManager.Instance.starText.SetActive(false);
+        ScreenManager.Instance.leafText.SetActive(false);
+        ScreenManager.Instance.arrangeText.SetActive(false);
         //SpawnNPC();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(ScreenManager.Instance.isStart && !isSpawn)
+        if (ScreenManager.Instance.isStart && !isSpawn)
         {
             SpawnNPC();
         }
@@ -275,53 +284,17 @@ public class GameManager : MonoBehaviour
         Cut_Bottle4Cut.GetComponent<MeshRenderer>().material = Yellow;
         Cut_Bottle5Cut.GetComponent<MeshRenderer>().material = Yellow;
 
-        Cut_Bottle1UpperCut.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle2UpperCut.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle3UpperCut.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle4UpperCut.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle5UpperCut.GetComponent<MeshRenderer>().material = Yellow;
-
-        Cut_Bottle1UnderCut.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle2UnderCut.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle3UnderCut.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle4UnderCut.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle5UnderCut.GetComponent<MeshRenderer>().material = Yellow;
-
         Cut_Bottle1CutArea.GetComponent<MeshRenderer>().material = Yellow;
         Cut_Bottle2CutArea.GetComponent<MeshRenderer>().material = Yellow;
         Cut_Bottle3CutArea.GetComponent<MeshRenderer>().material = Yellow;
         Cut_Bottle4CutArea.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle5CutArea.GetComponent<MeshRenderer>().material = Yellow;
-
-        Cut_Bottle1UpperCutArea.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle2UpperCutArea.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle3UpperCutArea.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle4UpperCutArea.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle5UpperCutArea.GetComponent<MeshRenderer>().material = Yellow;
-
-        Cut_Bottle1UnderCutArea.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle2UnderCutArea.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle3UnderCutArea.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle4UnderCutArea.GetComponent<MeshRenderer>().material = Yellow;
-        Cut_Bottle5UnderCutArea.GetComponent<MeshRenderer>().material = Yellow;
+        Cut_Bottle5CutArea.GetComponent<SkinnedMeshRenderer>().material = Yellow;
 
         Bottle1Cut.GetComponent<MeshRenderer>().material = Yellow;
         Bottle2Cut.GetComponent<MeshRenderer>().material = Yellow;
         Bottle3Cut.GetComponent<MeshRenderer>().material = Yellow;
         Bottle4Cut.GetComponent<MeshRenderer>().material = Yellow;
         Bottle5Cut.GetComponent<MeshRenderer>().material = Yellow;
-
-        Bottle1UpperCut.GetComponent<MeshRenderer>().material = Yellow;
-        Bottle2UpperCut.GetComponent<MeshRenderer>().material = Yellow;
-        Bottle3UpperCut.GetComponent<MeshRenderer>().material = Yellow;
-        Bottle4UpperCut.GetComponent<MeshRenderer>().material = Yellow;
-        Bottle5UpperCut.GetComponent<MeshRenderer>().material = Yellow;
-
-        Bottle1UnderCut.GetComponent<MeshRenderer>().material = Yellow;
-        Bottle2UnderCut.GetComponent<MeshRenderer>().material = Yellow;
-        Bottle3UnderCut.GetComponent<MeshRenderer>().material = Yellow;
-        Bottle4UnderCut.GetComponent<MeshRenderer>().material = Yellow;
-        Bottle5UnderCut.GetComponent<MeshRenderer>().material = Yellow;
 
         ScreenManager.Instance.BGSpray.SetActive(false);
         ScreenManager.Instance.BG.SetActive(false);
@@ -344,53 +317,17 @@ public class GameManager : MonoBehaviour
         Cut_Bottle4Cut.GetComponent<MeshRenderer>().material = Purple;
         Cut_Bottle5Cut.GetComponent<MeshRenderer>().material = Purple;
 
-        Cut_Bottle1UnderCut.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle2UnderCut.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle3UnderCut.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle4UnderCut.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle5UnderCut.GetComponent<MeshRenderer>().material = Purple;
-
-        Cut_Bottle1UpperCut.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle2UpperCut.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle3UpperCut.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle4UpperCut.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle5UpperCut.GetComponent<MeshRenderer>().material = Purple;
-
         Cut_Bottle1CutArea.GetComponent<MeshRenderer>().material = Purple;
         Cut_Bottle2CutArea.GetComponent<MeshRenderer>().material = Purple;
         Cut_Bottle3CutArea.GetComponent<MeshRenderer>().material = Purple;
         Cut_Bottle4CutArea.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle5CutArea.GetComponent<MeshRenderer>().material = Purple;
-
-        Cut_Bottle1UnderCutArea.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle2UnderCutArea.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle3UnderCutArea.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle4UnderCutArea.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle5UnderCutArea.GetComponent<MeshRenderer>().material = Purple;
-
-        Cut_Bottle1UpperCutArea.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle2UpperCutArea.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle3UpperCutArea.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle4UpperCutArea.GetComponent<MeshRenderer>().material = Purple;
-        Cut_Bottle5UpperCutArea.GetComponent<MeshRenderer>().material = Purple;
+        Cut_Bottle5CutArea.GetComponent<SkinnedMeshRenderer>().material = Purple;
 
         Bottle1Cut.GetComponent<MeshRenderer>().material = Purple;
         Bottle2Cut.GetComponent<MeshRenderer>().material = Purple;
         Bottle3Cut.GetComponent<MeshRenderer>().material = Purple;
         Bottle4Cut.GetComponent<MeshRenderer>().material = Purple;
         Bottle5Cut.GetComponent<MeshRenderer>().material = Purple;
-
-        Bottle1UnderCut.GetComponent<MeshRenderer>().material = Purple;
-        Bottle2UnderCut.GetComponent<MeshRenderer>().material = Purple;
-        Bottle3UnderCut.GetComponent<MeshRenderer>().material = Purple;
-        Bottle4UnderCut.GetComponent<MeshRenderer>().material = Purple;
-        Bottle5UnderCut.GetComponent<MeshRenderer>().material = Purple;
-
-        Bottle1UpperCut.GetComponent<MeshRenderer>().material = Purple;
-        Bottle2UpperCut.GetComponent<MeshRenderer>().material = Purple;
-        Bottle3UpperCut.GetComponent<MeshRenderer>().material = Purple;
-        Bottle4UpperCut.GetComponent<MeshRenderer>().material = Purple;
-        Bottle5UpperCut.GetComponent<MeshRenderer>().material = Purple;
 
         ScreenManager.Instance.BGSpray.SetActive(false);
         ScreenManager.Instance.Done.SetActive(true);
@@ -413,53 +350,17 @@ public class GameManager : MonoBehaviour
         Cut_Bottle4Cut.GetComponent<MeshRenderer>().material = Green;
         Cut_Bottle5Cut.GetComponent<MeshRenderer>().material = Green;
 
-        Cut_Bottle1UnderCut.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle2UnderCut.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle3UnderCut.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle4UnderCut.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle5UnderCut.GetComponent<MeshRenderer>().material = Green;
-
-        Cut_Bottle1UpperCut.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle2UpperCut.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle3UpperCut.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle4UpperCut.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle5UpperCut.GetComponent<MeshRenderer>().material = Green;
-
         Cut_Bottle1CutArea.GetComponent<MeshRenderer>().material = Green;
         Cut_Bottle2CutArea.GetComponent<MeshRenderer>().material = Green;
         Cut_Bottle3CutArea.GetComponent<MeshRenderer>().material = Green;
         Cut_Bottle4CutArea.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle5CutArea.GetComponent<MeshRenderer>().material = Green;
-
-        Cut_Bottle1UnderCutArea.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle2UnderCutArea.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle3UnderCutArea.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle4UnderCutArea.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle5UnderCutArea.GetComponent<MeshRenderer>().material = Green;
-
-        Cut_Bottle1UpperCutArea.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle2UpperCutArea.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle3UpperCutArea.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle4UpperCutArea.GetComponent<MeshRenderer>().material = Green;
-        Cut_Bottle5UpperCutArea.GetComponent<MeshRenderer>().material = Green;
+        Cut_Bottle5CutArea.GetComponent<SkinnedMeshRenderer>().material = Green;
 
         Bottle1Cut.GetComponent<MeshRenderer>().material = Green;
         Bottle2Cut.GetComponent<MeshRenderer>().material = Green;
         Bottle3Cut.GetComponent<MeshRenderer>().material = Green;
         Bottle4Cut.GetComponent<MeshRenderer>().material = Green;
         Bottle5Cut.GetComponent<MeshRenderer>().material = Green;
-
-        Bottle1UnderCut.GetComponent<MeshRenderer>().material = Green;
-        Bottle2UnderCut.GetComponent<MeshRenderer>().material = Green;
-        Bottle3UnderCut.GetComponent<MeshRenderer>().material = Green;
-        Bottle4UnderCut.GetComponent<MeshRenderer>().material = Green;
-        Bottle5UnderCut.GetComponent<MeshRenderer>().material = Green;
-
-        Bottle1UpperCut.GetComponent<MeshRenderer>().material = Green;
-        Bottle2UpperCut.GetComponent<MeshRenderer>().material = Green;
-        Bottle3UpperCut.GetComponent<MeshRenderer>().material = Green;
-        Bottle4UpperCut.GetComponent<MeshRenderer>().material = Green;
-        Bottle5UpperCut.GetComponent<MeshRenderer>().material = Green;
 
         ScreenManager.Instance.BGSpray.SetActive(false);
         ScreenManager.Instance.Done.SetActive(true);
@@ -482,53 +383,17 @@ public class GameManager : MonoBehaviour
         Cut_Bottle4Cut.GetComponent<MeshRenderer>().material = blue;
         Cut_Bottle5Cut.GetComponent<MeshRenderer>().material = blue;
 
-        Cut_Bottle1UnderCut.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle2UnderCut.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle3UnderCut.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle4UnderCut.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle5UnderCut.GetComponent<MeshRenderer>().material = blue;
-
-        Cut_Bottle1UpperCut.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle2UpperCut.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle3UpperCut.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle4UpperCut.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle5UpperCut.GetComponent<MeshRenderer>().material = blue;
-
         Cut_Bottle1CutArea.GetComponent<MeshRenderer>().material = blue;
         Cut_Bottle2CutArea.GetComponent<MeshRenderer>().material = blue;
         Cut_Bottle3CutArea.GetComponent<MeshRenderer>().material = blue;
         Cut_Bottle4CutArea.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle5CutArea.GetComponent<MeshRenderer>().material = blue;
-
-        Cut_Bottle1UnderCutArea.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle2UnderCutArea.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle3UnderCutArea.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle4UnderCutArea.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle5UnderCutArea.GetComponent<MeshRenderer>().material = blue;
-
-        Cut_Bottle1UpperCutArea.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle2UpperCutArea.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle3UpperCutArea.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle4UpperCutArea.GetComponent<MeshRenderer>().material = blue;
-        Cut_Bottle5UpperCutArea.GetComponent<MeshRenderer>().material = blue;
+        Cut_Bottle5CutArea.GetComponent<SkinnedMeshRenderer>().material = blue;
 
         Bottle1Cut.GetComponent<MeshRenderer>().material = blue;
         Bottle2Cut.GetComponent<MeshRenderer>().material = blue;
         Bottle3Cut.GetComponent<MeshRenderer>().material = blue;
         Bottle4Cut.GetComponent<MeshRenderer>().material = blue;
         Bottle5Cut.GetComponent<MeshRenderer>().material = blue;
-
-        Bottle1UnderCut.GetComponent<MeshRenderer>().material = blue;
-        Bottle2UnderCut.GetComponent<MeshRenderer>().material = blue;
-        Bottle3UnderCut.GetComponent<MeshRenderer>().material = blue;
-        Bottle4UnderCut.GetComponent<MeshRenderer>().material = blue;
-        Bottle5UnderCut.GetComponent<MeshRenderer>().material = blue;
-
-        Bottle1UpperCut.GetComponent<MeshRenderer>().material = blue;
-        Bottle2UpperCut.GetComponent<MeshRenderer>().material = blue;
-        Bottle3UpperCut.GetComponent<MeshRenderer>().material = blue;
-        Bottle4UpperCut.GetComponent<MeshRenderer>().material = blue;
-        Bottle5UpperCut.GetComponent<MeshRenderer>().material = blue;
 
         ScreenManager.Instance.BGSpray.SetActive(false);
         ScreenManager.Instance.Done.SetActive(true);
@@ -551,53 +416,17 @@ public class GameManager : MonoBehaviour
         Cut_Bottle4Cut.GetComponent<MeshRenderer>().material = Pink;
         Cut_Bottle5Cut.GetComponent<MeshRenderer>().material = Pink;
 
-        Cut_Bottle1UnderCut.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle2UnderCut.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle3UnderCut.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle4UnderCut.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle5UnderCut.GetComponent<MeshRenderer>().material = Pink;
-
-        Cut_Bottle1UpperCut.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle2UpperCut.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle3UpperCut.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle4UpperCut.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle5UpperCut.GetComponent<MeshRenderer>().material = Pink;
-
         Cut_Bottle1CutArea.GetComponent<MeshRenderer>().material = Pink;
         Cut_Bottle2CutArea.GetComponent<MeshRenderer>().material = Pink;
         Cut_Bottle3CutArea.GetComponent<MeshRenderer>().material = Pink;
         Cut_Bottle4CutArea.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle5CutArea.GetComponent<MeshRenderer>().material = Pink;
-
-        Cut_Bottle1UnderCutArea.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle2UnderCutArea.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle3UnderCutArea.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle4UnderCutArea.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle5UnderCutArea.GetComponent<MeshRenderer>().material = Pink;
-
-        Cut_Bottle1UpperCutArea.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle2UpperCutArea.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle3UpperCutArea.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle4UpperCutArea.GetComponent<MeshRenderer>().material = Pink;
-        Cut_Bottle5UpperCutArea.GetComponent<MeshRenderer>().material = Pink;
+        Cut_Bottle5CutArea.GetComponent<SkinnedMeshRenderer>().material = Pink;
 
         Bottle1Cut.GetComponent<MeshRenderer>().material = Pink;
         Bottle2Cut.GetComponent<MeshRenderer>().material = Pink;
         Bottle3Cut.GetComponent<MeshRenderer>().material = Pink;
         Bottle4Cut.GetComponent<MeshRenderer>().material = Pink;
         Bottle5Cut.GetComponent<MeshRenderer>().material = Pink;
-
-        Bottle1UnderCut.GetComponent<MeshRenderer>().material = Pink;
-        Bottle2UnderCut.GetComponent<MeshRenderer>().material = Pink;
-        Bottle3UnderCut.GetComponent<MeshRenderer>().material = Pink;
-        Bottle4UnderCut.GetComponent<MeshRenderer>().material = Pink;
-        Bottle5UnderCut.GetComponent<MeshRenderer>().material = Pink;
-
-        Bottle1UpperCut.GetComponent<MeshRenderer>().material = Pink;
-        Bottle2UpperCut.GetComponent<MeshRenderer>().material = Pink;
-        Bottle3UpperCut.GetComponent<MeshRenderer>().material = Pink;
-        Bottle4UpperCut.GetComponent<MeshRenderer>().material = Pink;
-        Bottle5UpperCut.GetComponent<MeshRenderer>().material = Pink;
 
         ScreenManager.Instance.BGSpray.SetActive(false);
         ScreenManager.Instance.Done.SetActive(true);
@@ -634,6 +463,7 @@ public class GameManager : MonoBehaviour
             isSpray = true;
             knifeTool.SetActive(true);
             ScreenManager.Instance.Done.SetActive(false);
+            Cut_Bottle5.GetComponent<Knife>().enabled = true;
         }
     }
 
@@ -650,6 +480,9 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(sec);
         ScreenManager.Instance.BG.SetActive(false);
         ZoomOutCam.SetActive(false);
+        Cam1.SetActive(false);
+        Cam2.SetActive(false);
+        Cam3.SetActive(false);
         ZoomInCam.SetActive(true);
         ScreenManager.Instance.BGSpray.SetActive(true);
         Bottle1.SetActive(false);
@@ -675,5 +508,28 @@ public class GameManager : MonoBehaviour
 
         ScreenManager.Instance.first.SetActive(false);
         ScreenManager.Instance.Second.SetActive(false);
+        ScreenManager.Instance.camObj1.SetActive(false);
+        ScreenManager.Instance.camObj2.SetActive(false);
+        ScreenManager.Instance.camObj3.SetActive(false);
+        ScreenManager.Instance.example[num].SetActive(true);
+    }
+
+    public void cam1()
+    {
+        Cam1.SetActive(true);
+        Cam2.SetActive(false);
+        Cam3.SetActive(false);
+    }
+    public void cam2()
+    {
+        Cam2.SetActive(true);
+        Cam1.SetActive(false);
+        Cam3.SetActive(false);
+    }
+    public void cam3()
+    {
+        Cam3.SetActive(true);
+        Cam2.SetActive(false);
+        Cam1.SetActive(false);
     }
 }
